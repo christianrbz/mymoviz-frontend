@@ -56,7 +56,11 @@ function Home() {
         const poster = "https://image.tmdb.org/t/p/w500/" + data.movies[i].poster_path;
         const voteAverage = data.movies[i].vote_average;
         const voteCount = data.movies[i].vote_count;
-        const overview = data.movies[i].overview.substring(0, 250) + "...";
+        let overview = data.movies[i].overview;
+        if (overview.length > 250) {
+          overview = overview.substring(0, 250) + "...";
+        } 
+
         obj = {title, poster, voteAverage, voteCount, overview}
         table.push(obj);
         }
